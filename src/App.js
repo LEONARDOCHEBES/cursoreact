@@ -18,10 +18,19 @@ function App() {
           <option value= "meme2"> Meme 3 </option>
           <option value= "meme3"> Meme 4 </option>
 
-      </select>
+      </select><br/>
+
+        <input type="text" placeholder='Linea de arriba'/><br/>
+        <input type="text" placeholder='Linea de abajo'/><br/>   
+
+        <button> soy un boton </button><br/>
 
 
-
+        <div>
+            <span>Linea de arriba</span><br/>
+            <span>Linea de abajo</span><br/>
+            <img src='/meme/'/><br/>
+        </div>
 
     </div>
   );
