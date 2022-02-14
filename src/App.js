@@ -15,6 +15,8 @@ function App() {
   const [lineaDeArriba, fncLineaDeArriba]= useState('');//captura un estado
   const [lineaDeAbajo, fncLineaDeAbajo]= useState('');
 
+  const [imagenMeme, fncSetImagenMeme]= useState('');
+
   /*funcion que salta cuando se realiza cambios en el imput y captura el value del imput y lo mete
   en la variable para ser llamada por el span cuando se renderiza el dom */
 
@@ -26,16 +28,24 @@ function App() {
     fncLineaDeAbajo(EventoValor.target.value)
   }
 
+
+
+
+  const onChangeImagenMeme = function(EventoValor){
+    fncSetImagenMeme(EventoValor.target.value)
+  }
   return (
     <div className="App">
 
       
 
-      <select>
-          <option value= "meme0"> Meme 1 </option>
-          <option value= "meme1"> Meme 2 </option>
-          <option value= "meme2"> Meme 3 </option>
-          <option value= "meme3"> Meme 4 </option>
+      <select onChange={onChangeImagenMeme}>
+          <option value= "meme00"> Meme 1 </option>
+          <option value= "meme01"> Meme 2 </option>
+          <option value= "meme02"> Meme 3 </option>
+          <option value= "meme03"> Meme 4 </option>
+          <option value= "meme04"> Meme 5 </option>
+          <option value= "meme05"> Meme 6 </option>
 
       </select><br/>
 
@@ -45,10 +55,10 @@ function App() {
         <button> Exportar </button><br/>
 
 
-        <div>
+        <div className="claseMeme">
             <span>{lineaDeArriba}</span><br/>
             <span>{lineaDeAbajo}</span><br/>
-            <img src='/img/'/><br/>
+            <img src={"/img/" +imagenMeme+ ".jpg"}/><br/>
         </div>
 
     </div>
