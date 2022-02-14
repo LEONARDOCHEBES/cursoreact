@@ -1,6 +1,7 @@
 import logo from './logo.svg'; //importa la imagen 
 import './App.css'; // importa estilo css
 import { useState } from 'react';
+import html2canvas from 'html2canvas';
 
 
 /*Esta funcion lo que hace es retornar codigo html jsx y se pone los parentesis asi para
@@ -34,12 +35,27 @@ function App() {
   const onChangeImagenMeme = function(EventoValor){
     fncSetImagenMeme(EventoValor.target.value)
   }
+
+  const onClickBtnExportar = function(Evento){
+    html2canvas(document.querySelector("#idImgMeme")).then(canvas => {
+
+      var img    = canvas.toDataURL("image/png");
+
+      
+        var link = document.createElement('a');
+        link.download = 'meme.png';
+        link.href = img;
+        link.click();
+    });
+
+  }
+
   return (
     <div className="App">
 
       
 
-      <select onChange={onChangeImagenMeme}>
+      <select className="sel" onChange={onChangeImagenMeme}>
           <option value= "meme00"> Meme 1 </option>
           <option value= "meme01"> Meme 2 </option>
           <option value= "meme02"> Meme 3 </option>
@@ -52,10 +68,10 @@ function App() {
         <input onChange={onChangeLineaDeArriba} type="text" placeholder='Linea de arriba'/><br/>
         <input onChange={onChangeLineaDeAbajo} type="text" placeholder='Linea de abajo'/><br/>   
 
-        <button> Exportar </button><br/>
+        <button className="btn" onClick={onClickBtnExportar}> Exportar </button><br/>
 
 
-        <div className="claseMeme">
+        <div className="claseMeme" id='idImgMeme'>
             <span>{lineaDeArriba}</span><br/>
             <span>{lineaDeAbajo}</span><br/>
             <img src={"/img/" +imagenMeme+ ".jpg"}/><br/>
