@@ -37,6 +37,13 @@
   }
 }
 
+.sel {
+  margin-bottom: 10px
+}
+.btn {
+  margin-top: 10px;
+}
+
 .claseMeme span {
 position: absolute;
 margin-top: 60px;
@@ -52,7 +59,7 @@ margin-top: 61px;
 .claseMeme span:nth-child(3){
 
 
-  margin-top: 290px;
+  margin-top: 305px;
 
 
 }
